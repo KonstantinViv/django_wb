@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from catalog import views
+from django.urls import path
+#from import views
 
+# Listing 9.1
 urlpatterns = [
-    path('', views.index, name='home'),
-    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
 ]
-
