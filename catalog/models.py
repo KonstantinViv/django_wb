@@ -56,13 +56,13 @@ class Book(models.Model):
                             help_text="Должно содержать 13 символов",
                             verbose_name="ISBN книги")
 
-    def __str__(self):
-        return self.title
+
 
     def get_absolute_url(self):
         # Возвращает url-адрес для доступа к определенному экземпляру книги.
-        return reverse('book-detail', args=[str(self.id)])
-
+        return reverse('', kwargs={'pk': self.pk}, args=[str(self.id)])
+    def __str__(self):
+        return self.title
 # Listing 8.7
 class Status(models.Model):
     name = models.CharField(max_length=20,

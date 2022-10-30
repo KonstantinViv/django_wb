@@ -19,8 +19,29 @@ from django.urls import path
 from catalog import views
 from django.urls import path
 #from import views
-
+#from django.conf.urls import url
+from django.urls import re_path as url
+from django.urls import path, include
 # Listing 9.1
 urlpatterns = [
     path('', views.index, name='index'),
+    path('authors_add/', views.authors_add, name='authors_add'),
+    path('edit1/<int:id>/', views.edit1, name='edit1'),
+    path('create/', views.create, name='create'),
+    path('delete/<int:id>/', views.delete, name='delete'),
+    path('admin/', admin.site.urls),
+    path('index1.html/', views.index1, name='index1'),
+    url(r'^books/$', views.BookListView.as_view(), name='books'),
+    url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book_detail'),
+    url(r'^authors/$', views.AuthorListView.as_view(), name='authors'),
+]
+# Добавление URL-адреса для входа в систему
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+
+urlpatterns += [
+    url(r'^book/create/$', views.BookCreate.as_view(), name='book_create'),
+    url(r'^book/update/(?P<pk>\d+)$', views.BookUpdate.as_view(), name='book_update'),
+    url(r'^book/delete/(?P<pk>\d+)$', views.BookDelete.as_view(), name='book_delete'),
 ]

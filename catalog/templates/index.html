@@ -7,7 +7,7 @@
     веб-сайт, написанный на  Django. Разработан на Python
     в качестве учебного примера с использованием PyCharm.</p>
 
-<h2>Динамический контент</h2>
+<h2 style="font-size:25px;">Все что пока имеем</h2>
 
   <p>База данных сайта Мир книг содержит следующее
      количество записей :</p>
@@ -19,5 +19,11 @@
         </strong> {{ num_instances_available }}</li>
     <li><strong>Количество авторов книг:
         </strong> {{ num_authors }}</li>
+    <p>Количество посещений данной страницы - {{ num_visits }}</p>
+    <li><strong>Список авторов:
+     {% for nm in people %}
+      <li><a href="{% url 'index1' %}">{{ nm.last_name }}</a></li>
+     {% endfor %}
+
   </ul>
 {% endblock %}

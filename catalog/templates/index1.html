@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>AUTHORS</h1>
+
+  <p>Добро пожаловать в <em>Мир книг</em>, Это очень простой
+    веб-сайт, написанный на  Django. Разработан на Python
+    в качестве учебного примера с использованием PyCharm.</p>
+
+<h2 style="font-size:25px;">Все что пока имеем</h2>
+
+    <ul>
+    <p> FIRST {{ peoples.0 }} </p>
+    <p> {% now "Y" %}</p>
+    <li><strong>Список авторов:
+     {% for nm in peoples %}
+      <font style="color: red; font-size: 10рх">
+      <p>Фамилия:   {{ nm.last_name }} Имя:   {{ nm.first_name }} Родился:   {{ nm.date_of_birth }} Умер:   {{ nm.date_of_death }}</p>
+     {% endfor %}
+
+      <li><strong>List of books:</li>
+      {% for vl in boooks.values %}
+      <li>{{ vl }}</li>
+      {% endfor %}
+
+    </ul>
+{% endblock %}
+
+
+
